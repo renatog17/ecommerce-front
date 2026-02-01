@@ -1,12 +1,8 @@
 import './App.css'
 
-function App() {
+import AppRoutes from './routes/AppRoutes.jsx';
 
-  return (
-    <>
-      Hello Vite+React
-    </>
-  )
+// App.jsx
+export default function App() {
+  return <AppRoutes />
 }
-
-export default App
