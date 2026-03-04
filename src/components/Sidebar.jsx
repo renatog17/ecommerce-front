@@ -22,7 +22,7 @@ export default function Sidebar({ filters, onChange, categorias }) {
     >
       <h2 className="text-xl font-bold mb-4">Conta</h2>
 
-      {authenticated ? (
+      {/*authenticated ? (
         <button
           onClick={logout}
           className="w-full bg-red-500 text-white py-2 rounded mb-6"
@@ -44,7 +44,7 @@ export default function Sidebar({ filters, onChange, categorias }) {
             Cadastrar
           </a>
         </div>
-      )}
+      )*/}
 
       <h2 className="text-xl font-bold mb-4">Filtros</h2>
 

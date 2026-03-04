@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import placeholderImg from "../assets/71+OxTnmZbL._AC_SY550_.jpg"; // imagem temporária
 
 export default function ProdutoCard({ produto, onAddToCart }) {
   const { authenticated } = useAuth();
@@ -17,7 +18,16 @@ export default function ProdutoCard({ produto, onAddToCart }) {
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+    <div className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition flex flex-col">
+      {/* Imagem do produto */}
+      <div className="w-full h-48 mb-4">
+        <img
+          src={placeholderImg}
+          alt={produto.nome}
+          className="w-full h-full object-contain rounded"
+        />
+      </div>
+
       <h2 className="text-xl font-semibold">{produto.nome}</h2>
 
       <p className="text-gray-600 mt-1">{produto.descricao}</p>
@@ -37,8 +47,7 @@ export default function ProdutoCard({ produto, onAddToCart }) {
           className={`mt-3 w-full py-2 rounded transition text-white
             ${adding 
               ? "bg-green-600 cursor-not-allowed" 
-              : "bg-blue-600 hover:bg-blue-700 cursor-pointer"}
-          `}
+              : "bg-blue-600 hover:bg-blue-700 cursor-pointer"}`}
         >
           {adding ? "Adicionado ✓" : "Adicionar ao carrinho"}
         </button>
