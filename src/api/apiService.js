@@ -48,10 +48,10 @@ export const getCategorias = async () => {
 };
 //private
 export const getClientData = () => privateApi.get("/client/data");
-export const createPedido = (pedidoData) => privateApi.post("/pedidos", pedidoData);
+export const addItemToPedido = (idProduto, qtd) => privateApi.patch(`/pedidos/cart`, { idProduto, qtd });
 export const getOpenPedido = async () => {
   try {
-    const response = await privateApi.get("/pedidos/iniciado");
+    const response = await privateApi.get("/pedidos/cart");
     return response.data;
   } catch (error) {
     if (error.response && error.response.status === 404) {

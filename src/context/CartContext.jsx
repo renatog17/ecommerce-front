@@ -1,6 +1,6 @@
 import { useAuth } from "./AuthContext";
 import { createContext, useContext, useEffect, useState } from "react";
-import { createPedido, getOpenPedido, finalizePedido } from "../api/apiService";
+import { addItemToPedido, getOpenPedido, finalizePedido } from "../api/apiService";
 
 const CartContext = createContext(null);
 
@@ -48,14 +48,7 @@ export function CartProvider({ children }) {
 
   async function addItem(idProduto, qtd = 1) {
     try {
-      const response = await createPedido({
-        itens: [
-          {
-            idProduto,
-            qtd,
-          },
-        ],
-      });
+      const response = await addItemToPedido(idProduto, qtd);
       console.log("Item adicionado ao pedido:", response.data);
       const pedidoAtualizado = response?.data;
 
